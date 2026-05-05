@@ -1,0 +1,116 @@
+/* ============================================================
+   HeyHappy Promo Popup
+   Design by HeyHappy Digital Agency — heyhappyproject@gmail.com
+   ============================================================ */
+
+#heyhappy-popup {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99999;
+  width: 300px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  padding: 1.5rem;
+  transform: translateY(120%) scale(0.95);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(.22,1,.36,1), opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#heyhappy-popup.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.hhp-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  padding: 0.25rem;
+  line-height: 1;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.hhp-close:hover { color: #333; }
+
+.hhp-logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  margin-bottom: 0.85rem;
+  object-fit: contain;
+}
+
+.hhp-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.hhp-desc {
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.hhp-contact {
+  font-size: 0.78rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+.hhp-contact a {
+  color: var(--color-primary, #00365f);
+  text-decoration: none;
+  font-weight: 600;
+}
+.hhp-contact a:hover { text-decoration: underline; }
+
+.hhp-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hhp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.hhp-btn:hover { opacity: 0.85; }
+
+.hhp-btn-primary {
+  background: var(--color-primary, #00365f);
+  color: #fff;
+}
+
+.hhp-btn-outline {
+  border: 1.5px solid var(--color-primary, #00365f);
+  color: var(--color-primary, #00365f);
+  background: transparent;
+}
+
+@media (max-width: 400px) {
+  #heyhappy-popup {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+}

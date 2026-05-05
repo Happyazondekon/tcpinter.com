@@ -1,0 +1,241 @@
+/* ============================================================
+   TCP Inter – Devis Form Page
+   ============================================================ */
+
+.devis-page {
+  padding-block: 5rem;
+  background: var(--color-surface-low);
+  min-height: calc(100vh - 72px);
+}
+
+.devis-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.devis-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.devis-header p {
+  color: var(--color-on-surface-var);
+  font-size: 1.0625rem;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.devis-form-wrap {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Form grid */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+label .required { color: var(--color-error); margin-left: 0.2em; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-outline-var);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--color-on-surface);
+  background: var(--color-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(19,96,167,0.12);
+}
+
+input::placeholder,
+textarea::placeholder { color: var(--color-outline); }
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2342474f' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Phone input with country code */
+.phone-input-group {
+  display: flex;
+  border: 1.5px solid var(--color-outline-var);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.phone-input-group:focus-within {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(19,96,167,0.12);
+}
+
+.phone-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 0.875rem;
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-var);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-right: 1.5px solid var(--color-outline-var);
+  flex-shrink: 0;
+}
+
+.phone-input-group input {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  flex: 1;
+}
+
+.phone-input-group input:focus { box-shadow: none; border-color: transparent; }
+
+/* File upload */
+.file-upload {
+  border: 2px dashed var(--color-outline-var);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.file-upload:hover {
+  border-color: var(--color-secondary);
+  background: var(--color-surface-container);
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-inline: auto;
+  margin-bottom: 0.75rem;
+  color: var(--color-secondary);
+}
+
+.file-upload-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+.file-upload-text strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-on-surface);
+  margin-bottom: 0.25rem;
+}
+
+.file-upload-text span { font-size: 0.8125rem; color: var(--color-on-surface-var); }
+
+/* Section heading inside form */
+.form-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-outline-var);
+}
+
+/* Privacy note */
+.form-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-var);
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background: var(--color-surface-low);
+  border-radius: var(--radius);
+}
+
+.form-privacy svg { width: 1rem; height: 1rem; fill: var(--color-secondary); flex-shrink: 0; margin-top: 0.1em; }
+
+/* Submit */
+.form-submit .btn {
+  width: 100%;
+  justify-content: center;
+  padding-block: 1rem;
+  font-size: 1.0625rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Success / Error states */
+.form-message {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: none;
+}
+
+.form-message.success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+  display: block;
+}
+
+.form-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .devis-form-wrap { padding: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+}

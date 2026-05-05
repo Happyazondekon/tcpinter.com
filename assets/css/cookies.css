@@ -1,0 +1,99 @@
+﻿/* ============================================================
+   TCP Inter - Cookie Consent Popup
+   Meme design que le popup promo HeyHappy
+   ============================================================ */
+
+#tcp-cookie-banner {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 9999;
+  width: 300px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  padding: 1.5rem;
+  transform: translateY(120%) scale(0.95);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(.22,1,.36,1), opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#tcp-cookie-banner.is-visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cookie-banner-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.cookie-banner-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+
+.cookie-banner-text {
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.cookie-banner-text a {
+  color: var(--color-primary, #00365f);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#cookie-accept {
+  flex: 1;
+  background: var(--color-primary, #00365f);
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+#cookie-accept:hover { opacity: 0.85; }
+
+#cookie-refuse {
+  flex: 1;
+  background: transparent;
+  color: var(--color-primary, #00365f);
+  border: 1.5px solid var(--color-primary, #00365f);
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+#cookie-refuse:hover { opacity: 0.7; }
+
+@media (max-width: 400px) {
+  #tcp-cookie-banner {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+  }
+}
