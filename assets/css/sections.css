@@ -125,9 +125,17 @@
   line-height: 1.75;
   color: var(--color-on-surface-var);
   font-style: italic;
+  text-align: justify;
+  hyphens: auto;
   margin: 0 0 1.5rem 0;
   border: none;
   padding: 0;
+}
+.dg-message p {
+  margin: 0 0 0.75rem 0;
+}
+.dg-message p:last-child {
+  margin-bottom: 0;
 }
 
 .dg-identity {
