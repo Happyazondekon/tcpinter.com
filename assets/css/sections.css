@@ -81,6 +81,90 @@
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
+/* ---- Mot du Directeur ---- */
+.dg-block {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 4rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--color-outline-var);
+}
+
+.dg-photo-wrap {
+  position: relative;
+}
+
+.dg-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--shadow-md);
+}
+
+.dg-content .section-label {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.dg-quote-icon {
+  width: 2.5rem;
+  height: 2rem;
+  color: var(--color-primary);
+  opacity: 0.18;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.dg-message {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-on-surface-var);
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  border: none;
+  padding: 0;
+}
+
+.dg-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-primary);
+}
+
+.dg-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.dg-title {
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .dg-block {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .dg-photo {
+    width: 160px;
+    margin-inline: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+}
+
 /* ---- Partners ---- */
 .partners {
   padding-block: 2.5rem;
