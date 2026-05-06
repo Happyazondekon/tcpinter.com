@@ -73,7 +73,7 @@ $dg_img    = get_template_directory_uri() . '/assets/images/dg_tcpinter.png';
         </blockquote>
         <div class="dg-identity">
           <strong class="dg-name">M. Théophile Nounahon</strong>
-          <span class="dg-title">Directeur Général — TCP Inter Cleaning Services</span>
+          <span class="dg-title">Directeur Général — TCP Inter</span>
         </div>
       </div>
     </div>
