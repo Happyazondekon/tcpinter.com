@@ -72,8 +72,8 @@ $dg_img    = get_template_directory_uri() . '/assets/images/dg_tcpinter.png';
           Chez TCP Inter, chaque intervention est une promesse tenue. Depuis la création de notre entreprise, j'ai voulu bâtir une structure où la rigueur professionnelle et le respect du client ne sont pas des options, mais des fondations. Nous ne faisons pas que nettoyer des espaces — nous créons des environnements sains, sécurisés et agréables dans lesquels vos équipes peuvent s'épanouir et vos activités prospérer. C'est cette conviction qui guide chacun de nos agents, chaque jour, sur le terrain.
         </blockquote>
         <div class="dg-identity">
-          <strong class="dg-name">Le Directeur Général</strong>
-          <span class="dg-title">TCP Inter Cleaning Services</span>
+          <strong class="dg-name">M. Théophile Nounahon</strong>
+          <span class="dg-title">Directeur Général — TCP Inter Cleaning Services</span>
         </div>
       </div>
     </div>
