@@ -64,7 +64,7 @@ $dg_img    = get_template_directory_uri() . '/assets/images/dg_tcpinter.png';
              loading="lazy">
       </div>
       <div class="dg-content">
-        <span class="label-lg section-label text-secondary">Mot du Directeur</span>
+        <span class="label-lg section-label text-secondary">Mot du Président</span>
         <svg class="dg-quote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40" aria-hidden="true">
           <path d="M0 40V24.667C0 18.556 1.333 13.333 4 9 6.667 4.556 11.111 1.556 17.333 0L20 4.667C16.444 5.778 13.778 7.667 12 10.333 10.222 13 9.333 16 9.333 19.333H18V40H0zm28 0V24.667c0-6.111 1.333-11.334 4-15.667C34.667 4.556 39.111 1.556 45.333 0L48 4.667c-3.556 1.111-6.222 3-8 5.666C38.222 13 37.333 16 37.333 19.333H46V40H28z" fill="currentColor"/>
         </svg>
