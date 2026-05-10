@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * TCP Inter — AJAX handler for devis form
  * Génère un proforma Excel et l'envoie par email
