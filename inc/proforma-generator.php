@@ -236,8 +236,8 @@ function tcp_generate_proforma(array $data): string {
         'alignment' => ['vertical' => Alignment::VERTICAL_CENTER],
     ]);
     $sheet->getStyle('D20:F20')->applyFromArray([
-        'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER],
-        'number_format' => ['format_code' => '#,##0.00'],
+        'alignment'    => ['horizontal' => Alignment::HORIZONTAL_CENTER],
+        'numberFormat' => ['formatCode' => '#,##0.00'],
     ]);
     $sheet->getStyle('B20')->getAlignment()->setWrapText(true);
     $sheet->getStyle('C20')->getAlignment()->setWrapText(true);
