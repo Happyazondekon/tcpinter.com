@@ -53,6 +53,30 @@
     }
   }
 
+  /* ---------- Estimation prix en temps réel ---------- */
+  const typeSelect    = document.getElementById('type_prestation');
+  const surfaceInput  = document.getElementById('surface');
+  const estimBlock    = document.getElementById('devis-estimation');
+  const estimValue    = document.getElementById('estimation-value');
+
+  function updateEstimation() {
+    if (!typeSelect || !surfaceInput || !estimBlock || !estimValue) return;
+    var opt     = typeSelect.options[typeSelect.selectedIndex];
+    var prix    = parseFloat(opt ? opt.getAttribute('data-prix') : '');
+    var surface = parseFloat(surfaceInput.value);
+
+    if (!isNaN(prix) && surface > 0) {
+      var total = prix * surface;
+      estimValue.textContent = total.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      estimBlock.style.display = 'block';
+    } else {
+      estimBlock.style.display = 'none';
+    }
+  }
+
+  if (typeSelect) typeSelect.addEventListener('change', updateEstimation);
+  if (surfaceInput) surfaceInput.addEventListener('input', updateEstimation);
+
   /* ---------- Phone formatting ---------- */
   const phoneInput = document.getElementById('phone');
   if (phoneInput) {

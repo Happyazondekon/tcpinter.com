@@ -9,6 +9,12 @@
 
 defined('ABSPATH') || exit;
 
+// Composer autoload (PhpSpreadsheet etc.)
+$vendor_autoload = get_template_directory() . '/vendor/autoload.php';
+if (file_exists($vendor_autoload)) {
+    require_once $vendor_autoload;
+}
+
 /* ---------- Theme setup ---------- */
 function tcpinter_setup() {
     load_theme_textdomain('tcpinter', get_template_directory() . '/languages');

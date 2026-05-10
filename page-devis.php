@@ -43,6 +43,41 @@ get_header();
           </div>
         </div>
 
+        <!-- Row 2: Type de prestation + Surface -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="type_prestation">Type de prestation <span class="required" aria-hidden="true">*</span></label>
+            <select id="type_prestation" name="type_prestation" required aria-required="true">
+              <option value="">Sélectionnez un type</option>
+              <option value="bureaux" data-prix="1.10">Bureaux / Locaux tertiaires — 1,10 €/m²</option>
+              <option value="parties_communes" data-prix="0.75">Parties communes (copropriété) — 0,75 €/m²</option>
+              <option value="commerces" data-prix="1.20">Commerces / Boutiques — 1,20 €/m²</option>
+              <option value="entrepots" data-prix="0.60">Entrepôts / Industriel — 0,60 €/m²</option>
+              <option value="apres_chantier" data-prix="5.50">Après chantier (remise en état) — 5,50 €/m²</option>
+              <option value="vitrerie" data-prix="9.00">Vitrerie (intérieur + extérieur) — 9,00 €/m²</option>
+              <option value="desinfection" data-prix="3.50">Désinfection / Traitement — 3,50 €/m²</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="surface">Surface à nettoyer (m²) <span class="required" aria-hidden="true">*</span></label>
+            <input type="number" id="surface" name="surface" min="1" max="100000"
+                   placeholder="Ex : 250"
+                   required aria-required="true">
+          </div>
+        </div>
+
+        <!-- Estimation de prix -->
+        <div id="devis-estimation" class="devis-estimation" style="display:none;" aria-live="polite">
+          <div class="devis-estimation-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <div>
+              <span class="estimation-label">Estimation indicative :</span>
+              <strong id="estimation-value" class="estimation-value">—</strong>
+              <span class="estimation-note">HT / intervention · Prix ferme sur devis définitif</span>
+            </div>
+          </div>
+        </div>
+
         <!-- File upload -->
         <div class="form-group" style="margin-bottom: 1.25rem;">
           <label for="file-media">Photos ou vidéo de l'endroit</label>
