@@ -7,6 +7,7 @@
 defined('ABSPATH') || exit;
 
 function tcp_devis_submit_handler() {
+    ob_start(); // Capture toute sortie parasite (notices, warnings) pour garder une réponse JSON propre
 
     // Verify nonce
     if (!check_ajax_referer('tcp_devis_nonce', 'nonce', false)) {
@@ -104,8 +105,8 @@ function tcp_devis_submit_handler() {
             'surface'         => $surface,
             'notes'           => $notes,
         ]);
-    } catch (Exception $e) {
-        error_log('TCP Inter - Erreur proforma : ' . $e->getMessage());
+    } catch (\Throwable $e) {
+        error_log('TCP Inter - Erreur proforma : ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
     }
 
     // Save to database
@@ -135,7 +136,7 @@ function tcp_devis_submit_handler() {
     }
 
     // Build email interne
-    $to      = 'contact@tcpinter.com';
+    $to      = 'happyazondekon@gmail.com'; // TEST — remettre contact@tcpinter.com en prod
     $subject = sprintf('[TCP Inter] Nouvelle demande de devis - %s %s', $prenom, $nom);
 
     $body  = "NOUVELLE DEMANDE DE DEVIS - TCP INTER\n";
@@ -201,6 +202,8 @@ function tcp_devis_submit_handler() {
     $conf_body   .= "contact@tcpinter.com | tcpinter.com";
 
     wp_mail($email, $conf_subject, $conf_body, ['Content-Type: text/plain; charset=UTF-8']);
+
+    ob_get_clean(); // Vide le buffer avant d'envoyer la réponse JSON
 
     if ($sent) {
         wp_send_json_success(['message' => 'Votre demande a bien ete envoyee ! Nous vous contacterons sous 24h.']);

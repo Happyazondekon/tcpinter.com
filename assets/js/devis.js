@@ -158,21 +158,36 @@
       body: data,
       credentials: 'same-origin',
     })
-      .then(r => r.json())
-      .then(res => {
-        msgBox.className = 'form-message ' + (res.success ? 'success' : 'error');
-        msgBox.textContent = res.data.message;
+      .then(r => r.text())
+      .then(text => {
+        let res;
+        try {
+          res = JSON.parse(text);
+        } catch (e) {
+          console.error('TCP devis — réponse non-JSON :', text);
+          throw new Error('Réponse serveur invalide');
+        }
+
+        const success = !!res?.success;
+        const message = res?.data?.message
+          || (success ? 'Votre demande a bien été reçue !' : 'Une erreur est survenue. Veuillez réessayer.');
+
+        msgBox.className     = 'form-message ' + (success ? 'success' : 'error');
+        msgBox.style.display = 'block';
+        msgBox.textContent   = message;
         msgBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-        if (res.success) {
+        if (success) {
           form.reset();
+          if (estimBlock) estimBlock.style.display = 'none';
           if (fileLabel) fileLabel.textContent = 'Glissez et déposez (ou) Choisissez des fichiers';
         }
       })
-      .catch(() => {
-        msgBox.className = 'form-message error';
-        msgBox.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
+      .catch((err) => {
+        console.error('TCP devis — erreur :', err);
+        msgBox.className     = 'form-message error';
         msgBox.style.display = 'block';
+        msgBox.textContent   = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
       })
       .finally(() => {
         submitBtn.disabled = false;
