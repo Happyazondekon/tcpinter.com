@@ -136,7 +136,7 @@ function tcp_devis_submit_handler() {
     }
 
     // Build email interne
-    $to      = 'happyazondekon@gmail.com'; // TEST — remettre contact@tcpinter.com en prod
+    $to      = 'contact@tcpinter.com';
     $subject = sprintf('[TCP Inter] Nouvelle demande de devis - %s %s', $prenom, $nom);
 
     $body  = "NOUVELLE DEMANDE DE DEVIS - TCP INTER\n";

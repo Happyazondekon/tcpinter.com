@@ -137,6 +137,11 @@
     align-items: flex-end;
   }
 
+  .hero-bg video,
+  .hero-bg img {
+    object-position: 65% center;
+  }
+
   .hero-stats {
     position: relative;
     bottom: auto;

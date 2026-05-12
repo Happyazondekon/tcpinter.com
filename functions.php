@@ -58,7 +58,6 @@ function tcpinter_assets() {
     wp_enqueue_style('tcpinter-hero',    $uri . '/assets/css/hero.css',    ['tcpinter-main'], $v);
     wp_enqueue_style('tcpinter-sections',$uri . '/assets/css/sections.css',['tcpinter-main'], $v);
     wp_enqueue_style('tcpinter-cookies',  $uri . '/assets/css/cookies.css',  ['tcpinter-main'], $v);
-    wp_enqueue_style('tcpinter-promo',    $uri . '/assets/css/promo-popup.css', ['tcpinter-main'], $v);
 
     if (is_page_template('page-devis.php')) {
         wp_enqueue_style('tcpinter-devis', $uri . '/assets/css/devis.css', ['tcpinter-main'], $v);
@@ -76,10 +75,6 @@ function tcpinter_assets() {
     );
     wp_enqueue_script('tcpinter-cookies',
         $uri . '/assets/js/cookies.js',
-        [], $v, true
-    );
-    wp_enqueue_script('tcpinter-promo',
-        $uri . '/assets/js/promo-popup.js',
         [], $v, true
     );
 
@@ -108,6 +103,23 @@ add_action('wp_enqueue_scripts', 'tcpinter_assets');
 /* ---------- Disable emoji scripts ---------- */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
+
+/* ---------- SMTP Gmail via PHPMailer ---------- */
+add_action('phpmailer_init', function ($phpmailer) {
+    if (!defined('TCP_SMTP_HOST')) return;
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = TCP_SMTP_HOST;
+    $phpmailer->Port       = TCP_SMTP_PORT;
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->SMTPSecure = 'tls';
+    $phpmailer->Username   = TCP_SMTP_USER;
+    $phpmailer->Password   = TCP_SMTP_PASS;
+    $phpmailer->setFrom(TCP_SMTP_FROM, TCP_SMTP_FROM_NAME, false);
+});
+
+// Forcer l'adresse From pour WordPress (filtre wp_mail_from)
+add_filter('wp_mail_from',      function () { return defined('TCP_SMTP_FROM')      ? TCP_SMTP_FROM      : 'wordpress@localhost'; });
+add_filter('wp_mail_from_name', function () { return defined('TCP_SMTP_FROM_NAME') ? TCP_SMTP_FROM_NAME : 'WordPress'; });
 
 /* ---------- AJAX: Devis form ---------- */
 require_once get_template_directory() . '/inc/ajax-devis.php';

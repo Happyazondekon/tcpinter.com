@@ -96,24 +96,5 @@
   </div>
 </div>
 
-<!-- HeyHappy Promo Popup -->
-<div id="heyhappy-popup" role="dialog" aria-label="Agence digitale HeyHappy">
-  <button class="hhp-close" id="hhp-close" aria-label="Fermer">&#x2715;</button>
-  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/heyhappy-logo.png'); ?>" alt="HeyHappy" class="hhp-logo">
-  <p class="hhp-title">Vous avez aimé le design de ce site ?</p>
-  <p class="hhp-desc">Confiez le vôtre à notre agence digitale. Sites web, apps mobiles et solutions sur mesure.</p>
-  <div class="hhp-contact">
-    <a href="mailto:heyhappyproject@gmail.com">heyhappyproject@gmail.com</a>
-  </div>
-  <div class="hhp-actions">
-    <a href="https://happyazondekon.github.io/" target="_blank" rel="noopener noreferrer" class="hhp-btn hhp-btn-primary">
-      Voir le portfolio
-    </a>
-    <a href="https://play.google.com/store/apps/dev?id=6296680608247349537" target="_blank" rel="noopener noreferrer" class="hhp-btn hhp-btn-outline">
-      Nos apps
-    </a>
-  </div>
-</div>
-
 </body>
 </html>

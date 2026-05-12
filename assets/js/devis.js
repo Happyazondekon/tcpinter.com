@@ -77,6 +77,42 @@
   if (typeSelect) typeSelect.addEventListener('change', updateEstimation);
   if (surfaceInput) surfaceInput.addEventListener('input', updateEstimation);
 
+  /* ---------- Popup de confirmation ---------- */
+  let modalOverlay = document.getElementById('tcp-success-modal');
+  if (!modalOverlay) {
+    modalOverlay = document.createElement('div');
+    modalOverlay.id = 'tcp-success-modal';
+    modalOverlay.className = 'tcp-modal-overlay';
+    modalOverlay.setAttribute('role', 'dialog');
+    modalOverlay.setAttribute('aria-modal', 'true');
+    modalOverlay.setAttribute('aria-labelledby', 'tcp-modal-title');
+    modalOverlay.innerHTML = `
+      <div class="tcp-modal">
+        <div class="tcp-modal-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 id="tcp-modal-title">Demande envoyée !</h3>
+        <p id="tcp-modal-msg"></p>
+        <button class="tcp-modal-close" type="button">Fermer</button>
+      </div>`;
+    document.body.appendChild(modalOverlay);
+
+    const closeModal = () => {
+      modalOverlay.classList.remove('is-open');
+      document.removeEventListener('keydown', onKey);
+    };
+    const onKey = (e) => { if (e.key === 'Escape') closeModal(); };
+    modalOverlay.querySelector('.tcp-modal-close').addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+  }
+
+  const openModal = (message) => {
+    document.getElementById('tcp-modal-msg').textContent = message;
+    modalOverlay.classList.add('is-open');
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modalOverlay.classList.remove('is-open'); });
+    modalOverlay.querySelector('.tcp-modal-close').focus();
+  };
+
   /* ---------- Phone formatting ---------- */
   const phoneInput = document.getElementById('phone');
   if (phoneInput) {
@@ -172,15 +208,16 @@
         const message = res?.data?.message
           || (success ? 'Votre demande a bien été reçue !' : 'Une erreur est survenue. Veuillez réessayer.');
 
-        msgBox.className     = 'form-message ' + (success ? 'success' : 'error');
-        msgBox.style.display = 'block';
-        msgBox.textContent   = message;
-        msgBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
         if (success) {
+          openModal(message);
           form.reset();
           if (estimBlock) estimBlock.style.display = 'none';
           if (fileLabel) fileLabel.textContent = 'Glissez et déposez (ou) Choisissez des fichiers';
+        } else {
+          msgBox.className     = 'form-message error';
+          msgBox.style.display = 'block';
+          msgBox.textContent   = message;
+          msgBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       })
       .catch((err) => {

@@ -146,7 +146,7 @@ function tcp_generate_proforma(array $data): string {
     $sheet->getRowDimension('11')->setRowHeight(8);
 
     // Émetteur (gauche)
-    $sheet->setCellValue('B6', 'TCP INTER SAS');
+    $sheet->setCellValue('B6', 'TCP INTER');
     $sheet->getStyle('B6')->applyFromArray([
         'font' => ['bold' => true, 'size' => 12, 'color' => ['rgb' => $bleu_marine]],
     ]);
@@ -311,7 +311,7 @@ function tcp_generate_proforma(array $data): string {
     $fr = $footerRow + 1;
     $sheet->mergeCells("A{$fr}:G{$fr}");
     $sheet->setCellValue("B{$fr}",
-        'TCP INTER SAS  |  7 rue Voltaire, 93000 Bobigny  |  contact@tcpinter.com  |  tcpinter.com  |  Tél : +33 06 44 07 28 80'
+        'TCP INTER  |  7 rue Voltaire, 93000 Bobigny  |  contact@tcpinter.com  |  tcpinter.com  |  Tél : +33 06 44 07 28 80'
     );
     $sheet->getStyle("A{$fr}:G{$fr}")->applyFromArray([
         'font'      => ['size' => 8, 'color' => ['rgb' => $texte_gris]],

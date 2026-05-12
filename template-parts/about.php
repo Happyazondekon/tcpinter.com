@@ -38,6 +38,15 @@ $dg_img    = get_template_directory_uri() . '/assets/images/dg_tcpinter.png';
           </span>
         </div>
 
+        <!-- Badge adhésion MEDEF -->
+        <div class="about-medef">
+          <img
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/adhesion-medef.webp'); ?>"
+            alt="Membre adhérent MEDEF"
+            class="medef-badge"
+            loading="lazy">
+        </div>
+
         <a href="<?php echo esc_url(home_url('/')); ?>#contact" class="btn btn-outline-dark">
           En savoir plus sur nous
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -75,7 +84,7 @@ $dg_img    = get_template_directory_uri() . '/assets/images/dg_tcpinter.png';
         </blockquote>
         <div class="dg-identity">
           <strong class="dg-name">M. Théophile Nounahon</strong>
-          <span class="dg-title">Président TCP INTER SAS</span>
+          <span class="dg-title">Président TCP INTER</span>
         </div>
       </div>
     </div>

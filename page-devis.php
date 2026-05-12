@@ -73,7 +73,7 @@ get_header();
             <div>
               <span class="estimation-label">Estimation indicative :</span>
               <strong id="estimation-value" class="estimation-value">—</strong>
-              <span class="estimation-note">HT / intervention · Prix ferme sur devis définitif</span>
+              <span class="estimation-note">HT / intervention</span>
             </div>
           </div>
         </div>
